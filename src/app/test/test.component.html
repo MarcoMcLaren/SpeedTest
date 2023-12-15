@@ -1,0 +1,29 @@
+<div class="test-container">
+    <button (click)="testDownloadSpeed()" [disabled]="isLoading">
+      {{ isLoading ? 'Testing...' : 'Test Download Speed' }}
+    </button>
+  
+    <div *ngIf="isLoading" class="loading-indicator">
+      Loading...
+    </div>
+
+      <!-- New button for Timed Download -->
+  <button (click)="testTimedDownloadSpeed()" [disabled]="isLoading">
+    {{ isLoading ? 'Testing...' : 'Test Timed Download' }}
+  </button>
+
+    <!-- Countdown Timer Display -->
+    <div *ngIf="isLoading">
+        Time Remaining: {{ countdown }} seconds
+      </div>
+
+        <!-- Display Downloaded Data -->
+  <div *ngIf="isLoading">
+    Data Received: {{ receivedData | number }} bytes
+  </div>
+  
+    <div *ngIf="downloadSpeed">
+        Download Speed: {{ formatSpeed(downloadSpeed) }}
+      </div>
+  </div>
+  
